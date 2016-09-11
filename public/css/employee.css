@@ -1,0 +1,25 @@
+/* Employee CSS */
+
+.employee{
+  background:white;
+  width: 98.5%;
+  margin-bottom:30px;
+}
+.employee ul{
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+.employee li{
+  width: 80px;
+}
+.distribution{
+  width:70% !important;
+  height:10px;
+  margin:auto;
+}
+.distribution div{
+  height:100%;
+  float:left;
+}

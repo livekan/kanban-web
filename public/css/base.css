@@ -1,0 +1,156 @@
+body {
+  background: #dfe5ed;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+  font-size: 12px;
+  margin: 0 2px;
+  padding: 0 5px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+h1 {
+  border-bottom: 1px solid #ddd;
+  font-size: 2.5em;
+}
+
+h2 {
+  border-bottom: 1px solid #eee;
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+p, ul {
+  margin: 15px 0;
+}
+ul{
+  list-style: none;
+}
+
+/* Navigation CSS */
+nav{
+  width: 100%;
+  height: 80px;
+  background: #2196f3;
+  color: white;
+  position:fixed;
+  top:0;
+}
+.logo{
+  float: left;
+  line-height: 80px;
+  margin-left: 30px;
+  font-size: 30px;
+}
+.sidebar{
+  height:100vh;
+  width: 200px;
+  background: #272c37;
+  margin:0;
+  list-style-type: none;
+  position:fixed;
+  padding:0;
+  padding-top: 20px;
+  top:80px;
+}
+.sidebar li{
+  padding: 0 2vw;
+  font-size: 20px;
+  line-height: 60px;
+  width:140px;
+  text-align:left;
+  padding:0;
+  padding-left: 30px;
+  padding-right:30px;
+  color:#677280;
+  cursor:pointer;
+}
+.sidebar .active{
+  color:white;
+}
+.sidebar li:hover{
+  background: #3E4452;
+  color:white;
+}
+.fa{
+  margin-right:15px;
+}
+
+/* Board CSS */
+.board{
+  margin-left:200px;
+  padding-left:20px;
+  padding-top:20px;
+  margin-top:80px;
+
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+/* Swim Channel CSS */
+.swimChannel{
+  float:left;
+  margin-top:0;
+  margin-bottom:50px;
+  margin-right: 10px;
+  flex-basis: 24%;
+}
+.channel_header{
+  width:100%;
+  text-align:center;
+  font-size:30px;
+  background:white;
+  line-height:60px;
+  height:60px;
+
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.note{
+  background:white;
+  border-radius:2px;
+  margin:0;
+  margin-top:20px;
+  padding: 10px;
+  width:80%;
+  min-height:12vw;
+  margin-left:4%;
+  float:left;
+}
+.note h2{
+  font-size:20px;
+  font-weight:300;
+  border-color:rgba(0,0,0,0.1);
+}

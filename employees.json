@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Evan Desantola",
+    "pink": "0",
+    "yellow": "4",
+    "blue": "9",
+    "green": "2",
+
+    "rpink": 1,
+    "ryellow": 1,
+    "rblue": 1,
+    "rgreen": 1,
+
+    "completed":[
+      {"color": "#FA351B",
+        "desc": "Create Spring Notes"},
+      {"color": "#1B87FA",
+        "desc": "Say Hi to Juan"}
+    ],
+    "assigned":[
+      {"color": "#BBFA1B",
+        "desc": "Say Hi to Alex"}
+    ]
+  },
+  {
+    "name": "Angelo Saraceno",
+    "pink": "1",
+    "yellow": "7",
+    "blue": "2",
+    "green": "1"
+  },
+  {
+    "name": "Aleks Kivuls",
+    "pink": "26",
+    "yellow": "7",
+    "blue": "0",
+    "green": "3"
+  },
+  {
+    "name": "Devansh Kukreja",
+    "pink": "2",
+    "yellow": "4",
+    "blue": "2",
+    "green": "8"
+  }
+]
