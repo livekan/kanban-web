@@ -28,7 +28,9 @@ var People = React.createClass({
   render:function(){
     var employeeNodes = this.state.data.map(function (dat){
       return(
-        <Employee name={dat.name} pink={dat.pink} yellow={dat.yellow} blue={dat.blue} green={dat.green} />
+        <Employee name={dat.name} pink={dat.pink} yellow={dat.yellow} blue={dat.blue} green={dat.green}
+                                  pink2={dat.pink2} yellow2={dat.yellow2} blue2={dat.blue2} green2={dat.green2}
+                                  completed={dat.completed} assigned={dat.assigned}/>
       );
     });
 
@@ -65,27 +67,82 @@ var Employee = React.createClass({
     var b2 = (parseInt(this.props.blue2) / sum2) * 100;
     var g2 = (parseInt(this.props.green2) / sum2) * 100;
 
-    console.log("total = "+sum);
+    var completedTasks = this.props.completed.map(function(note){
+      return(
+          <Note className="note" key={note.id} desc={note.desc} assignee={note.assignee} color={note.color}/>
+      );
+    });
+
+    var assignedTasks = this.props.assigned.map(function(note){
+      return(
+          <Note className="note" key={note.id} desc={note.desc} assignee={note.assignee} color={note.color}/>
+      );
+    });
+
     return (
       <div className="employee">
-        <ul>
+        <ul className="preview">
           <li><img/></li>
-          <li>{this.props.name}</li>
-          <li className="distribution">
-              <div style={{background:"#E84855", width:p+"%"}}> </div>
-              <div style={{background:"#E9EB87", width:y+"%"}}> </div>
-              <div style={{background:"#769FB6", width:b+"%"}}> </div>
-              <div style={{background:"#CCF5AC", width:g+"%"}}> </div>
-          </li>
+          <li className="name">{this.props.name}</li>
+          <li className="expansion_btn" onClick={this.props.onClick}><i className="fa fa-caret-square-o-down"></i></li>
+          <Distribution p={this.props.pink} y={this.props.yellow} b={this.props.blue} g={this.props.green}/>
         </ul>
 
-        <ul>
-          <li> Reported:<div className = "distribution"></div></li>
-          <li> Actual: <div className = "distribution"</div></li>
-          <li> <ul className="">
-          </li>
+        <ul className="moreInfo">
+          <li> Reported <Distribution p={this.props.pink2} y={this.props.yellow2} b={this.props.blue2} g={this.props.green2}/> </li>
+          <li> <Distribution p={this.props.pink} y={this.props.yellow} b={this.props.blue} g={this.props.green}/></li>
+          <li>Actual</li>
+          <li className="completed"><h2>Completed:</h2> {completedTasks} </li>
+          <li className="assigned"><h2>Assigned:</h2> {assignedTasks} </li>
         </ul>
 
+      </div>
+    );
+  }
+});
+
+var Distribution = React.createClass({
+  render: function(){
+    var sum = parseInt(this.props.p) + parseInt(this.props.y) + parseInt(this.props.b) + parseInt(this.props.g);
+    var p = (parseInt(this.props.p) / sum) * 100;
+    var y = (parseInt(this.props.y) / sum) * 100;
+    var b = (parseInt(this.props.b) / sum) * 100;
+    var g = (parseInt(this.props.g) / sum) * 100;
+    return(
+      <div className="distribution">
+          <div style={{background:"#E84855", width:p+"%"}}> </div>
+          <div style={{background:"#E9EB87", width:y+"%"}}> </div>
+          <div style={{background:"#769FB6", width:b+"%"}}> </div>
+          <div style={{background:"#CCF5AC", width:g+"%"}}> </div>
+      </div>
+    );
+  }
+});
+
+var SwimChannel = React.createClass({
+  render: function(){
+    var noteNodes = this.props.data.map(function(note){
+      return(
+          <Note className="note" key={note.id} desc={note.desc} assignee={note.assignee} color={note.color}/>
+      );
+    });
+
+    return (
+      <div className="swimChannel">
+        <div className="channel_header">{this.props.title}</div>
+        {noteNodes}
+      </div>
+    );
+  }
+});
+
+var Note = React.createClass({
+  render: function(){
+    return (
+      <div className="note draggable" style={{background:this.props.color}}>
+        <h2 className="noteDesc">
+          {this.props.desc}
+        </h2>
       </div>
     );
   }

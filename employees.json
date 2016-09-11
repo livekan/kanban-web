@@ -6,10 +6,13 @@
     "blue": "9",
     "green": "2",
 
-    "rpink": 1,
-    "ryellow": 1,
-    "rblue": 1,
-    "rgreen": 1,
+    "pink2": 1,
+    "yellow2": 1,
+    "blue2": 1,
+    "green2": 1,
+
+    "time_employed":5,
+    "rating": 5,
 
     "completed":[
       {"color": "#FA351B",
@@ -24,23 +27,28 @@
   },
   {
     "name": "Angelo Saraceno",
-    "pink": "1",
-    "yellow": "7",
-    "blue": "2",
-    "green": "1"
-  },
-  {
-    "name": "Aleks Kivuls",
-    "pink": "26",
-    "yellow": "7",
-    "blue": "0",
-    "green": "3"
-  },
-  {
-    "name": "Devansh Kukreja",
-    "pink": "2",
-    "yellow": "4",
-    "blue": "2",
-    "green": "8"
+    "pink": "5",
+    "yellow": "1",
+    "blue": "23",
+    "green": "12",
+
+    "pink2": 1,
+    "yellow2": 1,
+    "blue2": 1,
+    "green2": 1,
+
+    "time_employed":5,
+    "rating": 5,
+
+    "completed":[
+      {"color": "#FA351B",
+        "desc": "Create Spring Notes"},
+      {"color": "#1B87FA",
+        "desc": "Say Hi to Juan"}
+    ],
+    "assigned":[
+      {"color": "#BBFA1B",
+        "desc": "Say Hi to Alex"}
+    ]
   }
 ]
