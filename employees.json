@@ -1,19 +1,20 @@
 [
   {
-    "name": "Evan Desantola",
-    "pink": "0",
-    "yellow": "4",
-    "blue": "9",
-    "green": "2",
+    "name": "Devansh Kukreja",
+    "pink": "5",
+    "yellow": "1",
+    "blue": "23",
+    "green": "12",
 
     "pink2": 1,
     "yellow2": 1,
     "blue2": 1,
     "green2": 1,
 
-    "time_employed":30,
-    "rating": 6,
-    "image": "evan.png",
+    "time_employed":9,
+    "rating": 2,
+    "image": "devansh.png",
+    "github": "devanshk",
 
     "completed":[
       {"color": "#FA351B",
@@ -41,6 +42,7 @@
     "time_employed":15,
     "rating": 8,
     "image": "angelo.png",
+    "github": "ndneighbor",
 
     "completed":[
       {"color": "#FA351B",
@@ -68,6 +70,7 @@
     "time_employed":12,
     "rating": 9,
     "image": "aleks.png",
+    "github": "alekskivuls",
 
     "completed":[
       {"color": "#FA351B",
@@ -81,20 +84,21 @@
     ]
   },
   {
-    "name": "Devansh Kukreja",
-    "pink": "5",
-    "yellow": "1",
-    "blue": "23",
-    "green": "12",
+    "name": "Evan Desantola",
+    "pink": "0",
+    "yellow": "4",
+    "blue": "9",
+    "green": "2",
 
     "pink2": 1,
     "yellow2": 1,
     "blue2": 1,
     "green2": 1,
 
-    "time_employed":9,
-    "rating": 2,
-    "image": "devansh.png",
+    "time_employed":30,
+    "rating": 6,
+    "image": "evan.png",
+    "github": "evandesantola",
 
     "completed":[
       {"color": "#FA351B",

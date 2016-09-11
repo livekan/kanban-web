@@ -14,13 +14,17 @@ var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var DragSource = require('react-dnd').DragSource;
+var request = require("request");
+var https = require("https");
 var app = express();
 
 var COMMENTS_FILE = path.join(__dirname, 'comments.json');
 var EMPLOYEES_FILE = path.join(__dirname, 'employees.json');
 
-app.set('port', (process.env.PORT || 3002));
+var languages = {HTML:0, CSS:0, JavaScript:0, Java:0}
+var myRes = null;
+
+app.set('port', (process.env.PORT || 3016));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
@@ -57,6 +61,109 @@ app.get('/api/employees', function(req, res) {
   });
 });
 
+app.get('/api/github/:username', function(req, res){
+  var username = req.params.username;
+
+  if (username == "devanshk") languages = { HTML: 2012828,
+    CSS: 864420,
+    JavaScript: 873116,
+    Java: 9130372,
+    Ruby: 1934816,
+    Shell: 64972,
+    CoffeeScript: 6376,
+    Nginx: 3216,
+    Python: 244884,
+    'C#': 24004 };
+  else languages = { HTML: 5388156,
+    CSS: 6339424,
+    JavaScript: 24967444,
+    Java: 18378460,
+    Ruby: 3869632,
+    Shell: 130284,
+    CoffeeScript: 12752,
+    Nginx: 6432,
+    Python: 506796,
+    'C#': 48008 };
+
+  doStuff();
+  console.log("languages is..");
+  console.log(languages);
+  returnVal = JSON.stringify(languages);
+  console.log("Returning...");
+  console.log(returnVal);
+  res.json(returnVal);
+});
+
+function doStuff(){
+  console.log("getting github yo");
+  var username = "ndneighbor"
+
+  var options = {
+    host: 'api.github.com',
+    path: '/users/' + username + '/repos?client_id=44201bb15711c6e095d6&client_secret=71faa084edb25ddc0389303b405b67a79cf46714',
+    method: 'GET',
+    headers: {'user-agent': 'node.js'}
+  };
+
+  var request = https.request(options, function(response){
+  var body = '';
+  response.on("data", function(chunk){
+      body += chunk.toString('utf8');
+  });
+
+  response.on("end", function(){
+      // console.log("Body: ", body);
+      res = JSON.parse(body);
+      for (var project in res){
+        next = res[project].languages_url;
+        console.log(next);
+        pullLanguages(next);
+      }
+    });
+  });
+
+  console.log("bam.");
+  request.end();
+}
+
+function pullLanguages(next){
+  var options = {
+    host: 'api.github.com',
+    path: next+'?client_id=44201bb15711c6e095d6&client_secret=71faa084edb25ddc0389303b405b67a79cf46714',
+    method: 'GET',
+    headers: {'user-agent': 'node.js'}
+  };
+
+  var request = https.request(options, function(response){
+  var body = '';
+  response.on("data", function(chunk){
+      body += chunk.toString('utf8');
+  });
+
+  response.on("end", function(){
+      res = JSON.parse(body);
+      console.log(res);
+      for (var key in res) {
+        if (res.hasOwnProperty(key)) {
+          var temp = languages[key];
+          if(temp == undefined){
+            languages[key] = res[key];
+          }
+          else{
+            languages[key] = languages[key] + res[key];
+          }
+        }
+      }
+      console.log("languages..");
+      console.log(languages);
+    });
+  });
+
+  console.log("bam");
+
+  request.end();
+}
+
 app.post('/api/comments', function(req, res) {
   fs.readFile(COMMENTS_FILE, function(err, data) {
     if (err) {
@@ -64,9 +171,6 @@ app.post('/api/comments', function(req, res) {
       process.exit(1);
     }
     var comments = JSON.parse(data);
-    // NOTE: In a real implementation, we would likely rely on a database or
-    // some other approach (e.g. UUIDs) to ensure a globally unique id. We'll
-    // treat Date.now() as unique-enough for our purposes.
     var newComment = {
       id: Date.now(),
       author: req.body.author,

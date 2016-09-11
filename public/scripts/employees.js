@@ -35,7 +35,7 @@ var People = React.createClass({
         <Employee key={dat.name} name={dat.name} pink={dat.pink} yellow={dat.yellow} blue={dat.blue} green={dat.green}
                                   pink2={dat.pink2} yellow2={dat.yellow2} blue2={dat.blue2} green2={dat.green2}
                                   completed={dat.completed} assigned={dat.assigned} image={dat.image} rating={dat.rating}
-                                  time_employed={dat.time_employed}/>
+                                  time_employed={dat.time_employed} url={"/api/github/"+dat.github}/>
       );
     });
 
@@ -108,6 +108,7 @@ var Employee = React.createClass({
           <li> <Distribution p={this.props.pink} y={this.props.yellow} b={this.props.blue} g={this.props.green}/></li>
           <li>Actual</li>
           <li>Rating: {this.props.rating} | Days Worked: {this.props.time_employed}</li>
+          <li><GitHubReview url={this.props.url}/></li>
         </ul>
 
       </div>
@@ -133,6 +134,47 @@ var Distribution = React.createClass({
   }
 });
 
+var GitHubReview = React.createClass({
+  loadCommentsFromServer: function() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log("EVERYTHING'S FAILING");
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
+  getInitialState:function(){
+    return {data:[]}
+  },
+  componentDidMount: function() {
+    this.loadCommentsFromServer();
+  },
+  render: function(){
+    console.log("this:");
+    console.log(this);
+    console.log("data:");
+    console.log(this.state.data);
+    var obj = this.state.data
+    var codeNodes = Object.keys(obj).map(function (key) {
+      return(
+        <div>{obj[key]}</div>
+      );
+    });
+
+    return(
+      <div className="github">
+        {codeNodes}
+      </div>
+    )
+  }
+})
+
 var SwimChannel = React.createClass({
   render: function(){
     var noteNodes = this.props.data.map(function(note){
@@ -152,7 +194,7 @@ var SwimChannel = React.createClass({
 
 var Note = React.createClass({
   render: function(){
-    return (
+    return(
       <div className="note draggable" style={{background:this.props.color}}>
         <h2 className="noteDesc">
           {this.props.desc}

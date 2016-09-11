@@ -92,3 +92,11 @@ li.expansion_btn {
   clear:both;
   padding-top:50px;
 }
+
+/* Bonus */
+.github div{
+  float:left;
+}
+.github{
+  display:none;
+}

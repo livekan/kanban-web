@@ -1,120 +1,80 @@
 [
   {
-    "title": "Later",
+    "title": "Ice Box",
     "notes": [
       {
-        "color": "#FA351B",
-        "desc": "Create Spring Notes",
+        "color": "#fac018",
+        "desc": "Say hi to Juan",
         "assignee": "Angelo"
       },
       {
-        "color": "#1B87FA",
-        "desc": "Email Devin Action Items Discussed",
+        "color": "#f2ff00",
+        "desc": "Congratulate team on job well done",
+        "assignee": "Evan"
+      },
+      {
+        "color": "#FF0066",
+        "desc": "Say hi to Juan",
+        "assignee": "Angelo"
+      },
+      {
+        "color": "#1092F5",
+        "desc": "Congratulate team on job well done",
         "assignee": "Evan"
       }
     ]
   },
   {
-    "title": "Upcoming",
+    "title": "To Do",
     "notes": [
       {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
+        "color": "#fac018",
+        "desc": "Connect CV to Backend",
         "assignee": "Aleks"
       },
       {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
+        "color": "#f2ff00",
+        "desc": "Dance with Tahashi",
+        "assignee": "Devansh"
+      },
+      {
+        "color": "#1092F5",
+        "desc": "Say hi to Juan",
+        "assignee": "Angelo"
+      },
+      {
+        "color": "#FF0066",
+        "desc": "Congratulate team on job well done",
+        "assignee": "Evan"
+      }
+    ]
+  },
+  {
+    "title": "In Progress",
+    "notes": [
+      {
+        "color": "#fac018",
+        "desc": "Back End All-Routes",
+        "assignee": "Aleks"
+      },
+      {
+        "color": "#f2ff00",
+        "desc": "Front End - Kanban",
         "assignee": "Devansh"
       }
     ]
   },
   {
-    "title": "Upcoming",
+    "title": "Done! Done!",
     "notes": [
       {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
+        "color": "#f2ff00",
+        "desc": "React Setup",
         "assignee": "Aleks"
       },
       {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
-        "assignee": "Devansh"
-      }
-    ]
-  },
-  {
-    "title": "Upcoming",
-    "notes": [
-      {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
-        "assignee": "Aleks"
-      },
-      {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
-        "assignee": "Devansh"
-      }
-    ]
-  },
-  {
-    "title": "Upcoming",
-    "notes": [
-      {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
-        "assignee": "Aleks"
-      },
-      {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
-        "assignee": "Devansh"
-      }
-    ]
-  },
-  {
-    "title": "Upcoming",
-    "notes": [
-      {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
-        "assignee": "Aleks"
-      },
-      {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
-        "assignee": "Devansh"
-      }
-    ]
-  },
-  {
-    "title": "Upcoming",
-    "notes": [
-      {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
-        "assignee": "Aleks"
-      },
-      {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
-        "assignee": "Devansh"
-      }
-    ]
-  },
-  {
-    "title": "Upcoming",
-    "notes": [
-      {
-        "color": "#BBFA1B",
-        "desc": "Call Onstar to Confirm Cancellation",
-        "assignee": "Aleks"
-      },
-      {
-        "color": "#F21BFA",
-        "desc": "Buy LED Light Bulbs",
+        "color": "#fac018",
+        "desc": "Deploy on Linode",
         "assignee": "Devansh"
       }
     ]
