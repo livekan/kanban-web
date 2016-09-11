@@ -4,6 +4,10 @@
 /* Component Definitions */
 /*-----------------------*/
 
+/*-----------------------*/
+/* Component Definitions */
+/*-----------------------*/
+
 var People = React.createClass({
   loadCommentsFromServer: function() {
     $.ajax({
@@ -28,9 +32,10 @@ var People = React.createClass({
   render:function(){
     var employeeNodes = this.state.data.map(function (dat){
       return(
-        <Employee name={dat.name} pink={dat.pink} yellow={dat.yellow} blue={dat.blue} green={dat.green}
+        <Employee key={dat.name} name={dat.name} pink={dat.pink} yellow={dat.yellow} blue={dat.blue} green={dat.green}
                                   pink2={dat.pink2} yellow2={dat.yellow2} blue2={dat.blue2} green2={dat.green2}
-                                  completed={dat.completed} assigned={dat.assigned}/>
+                                  completed={dat.completed} assigned={dat.assigned} image={dat.image} rating={dat.rating}
+                                  time_employed={dat.time_employed}/>
       );
     });
 
@@ -54,6 +59,17 @@ var People = React.createClass({
 });
 
 var Employee = React.createClass({
+  getInitialState:function(){
+    return {width: '23.8%', previewWidth:''}
+  },
+  handleClick: function(){
+    console.log(this);
+      if (this.state.width === '23.8%'){
+          this.setState({width: '97.5%'});
+      } else {
+          this.setState({width: '23.8%'});
+      }
+  },
   render: function(){
     var sum = parseInt(this.props.pink) + parseInt(this.props.yellow) + parseInt(this.props.blue) + parseInt(this.props.green);
     var p = (parseInt(this.props.pink) / sum) * 100;
@@ -80,20 +96,18 @@ var Employee = React.createClass({
     });
 
     return (
-      <div className="employee">
+      <div className="employee" style={{width:this.state.width}} onClick={this.handleClick}>
         <ul className="preview">
-          <li><img/></li>
+          <li><img src={"img/" + this.props.image}/></li>
           <li className="name">{this.props.name}</li>
-          <li className="expansion_btn" onClick={this.props.onClick}><i className="fa fa-caret-square-o-down"></i></li>
-          <Distribution p={this.props.pink} y={this.props.yellow} b={this.props.blue} g={this.props.green}/>
         </ul>
+
 
         <ul className="moreInfo">
           <li> Reported <Distribution p={this.props.pink2} y={this.props.yellow2} b={this.props.blue2} g={this.props.green2}/> </li>
           <li> <Distribution p={this.props.pink} y={this.props.yellow} b={this.props.blue} g={this.props.green}/></li>
           <li>Actual</li>
-          <li className="completed"><h2>Completed:</h2> {completedTasks} </li>
-          <li className="assigned"><h2>Assigned:</h2> {assignedTasks} </li>
+          <li>Rating: {this.props.rating} | Days Worked: {this.props.time_employed}</li>
         </ul>
 
       </div>

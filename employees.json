@@ -11,8 +11,9 @@
     "blue2": 1,
     "green2": 1,
 
-    "time_employed":5,
-    "rating": 5,
+    "time_employed":30,
+    "rating": 6,
+    "image": "evan.png",
 
     "completed":[
       {"color": "#FA351B",
@@ -37,8 +38,63 @@
     "blue2": 1,
     "green2": 1,
 
-    "time_employed":5,
-    "rating": 5,
+    "time_employed":15,
+    "rating": 8,
+    "image": "angelo.png",
+
+    "completed":[
+      {"color": "#FA351B",
+        "desc": "Create Spring Notes"},
+      {"color": "#1B87FA",
+        "desc": "Say Hi to Juan"}
+    ],
+    "assigned":[
+      {"color": "#BBFA1B",
+        "desc": "Say Hi to Alex"}
+    ]
+  },
+  {
+    "name": "Aleks Kivuls",
+    "pink": "5",
+    "yellow": "1",
+    "blue": "23",
+    "green": "12",
+
+    "pink2": 1,
+    "yellow2": 1,
+    "blue2": 1,
+    "green2": 1,
+
+    "time_employed":12,
+    "rating": 9,
+    "image": "aleks.png",
+
+    "completed":[
+      {"color": "#FA351B",
+        "desc": "Create Spring Notes"},
+      {"color": "#1B87FA",
+        "desc": "Say Hi to Juan"}
+    ],
+    "assigned":[
+      {"color": "#BBFA1B",
+        "desc": "Say Hi to Alex"}
+    ]
+  },
+  {
+    "name": "Devansh Kukreja",
+    "pink": "5",
+    "yellow": "1",
+    "blue": "23",
+    "green": "12",
+
+    "pink2": 1,
+    "yellow2": 1,
+    "blue2": 1,
+    "green2": 1,
+
+    "time_employed":9,
+    "rating": 2,
+    "image": "devansh.png",
 
     "completed":[
       {"color": "#FA351B",
